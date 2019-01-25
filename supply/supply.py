@@ -1,5 +1,5 @@
 from newsapi import NewsApiClient
-import psycopg2
+from .models import Article
 import json
 # Init
 
@@ -34,7 +34,5 @@ def was_news_loaded(news):
     # should be done on SQL side, insert into with conditions
     # let's setup a postgres db.
 
-
-def db_connect():
-    conn = psycopg2.connect(dbname='news', user='postgres', password='postgres')
-    return conn
+def save_article():
+    pass
