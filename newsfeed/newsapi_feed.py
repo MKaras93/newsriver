@@ -21,14 +21,6 @@ def load_news(q='news'):
     return all_articles
 
 
-def was_news_loaded(news):
-    """returns true if news is already in the database"""
-    # can be done in database or before loading. If before loading, I have to extract similiar data
-    # news was loaded if url or (headline and source and publication date) are same in old and new.
-    # should be done on SQL side, insert into with conditions
-    # let's setup a postgres db.
-
-
 def save_articles(article_list, conn):
     # save article to database. No checks right now.
     command = """
@@ -65,11 +57,12 @@ def create_table(conn):
     con.commit()
 
 
+"""
 con = open_connection()
 create_table(con)
 articles = load_news()
 articles = articles['articles']
 save_articles(articles, con)
 con.close()
-
+"""
 
