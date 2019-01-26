@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+{% for art in arts %}
+<p><a href="{{ art.url }}" style="text-decoration:none; color:black">{{ art.title }}</a><br/>
+    <span style="font-size:85%"> {{ art.publishedAt }}</span></p>
+    <br/>
+{% endfor %}
+</html>

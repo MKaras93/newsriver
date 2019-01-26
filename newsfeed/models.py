@@ -4,11 +4,10 @@ from django.db import models
 
 
 class Article(models.Model):
-
     author = models.CharField(max_length=100, default='', blank=True, null=False)
     description = models.CharField(max_length=500, default='')
-    title = models.CharField(max_length=200)
-    url = models.URLField()
+    title = models.CharField(max_length=200, unique=True, blank=False, null=False)
+    url = models.URLField(unique=True)
     urlToImage = models.URLField(default='')
     publishedAt = models.DateTimeField()
     displayed = models.BooleanField(default=False)
