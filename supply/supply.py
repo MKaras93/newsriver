@@ -1,5 +1,6 @@
 from newsapi import NewsApiClient
-from .models import Article
+import psycopg2
+# from .models import Article
 import json
 # Init
 
@@ -8,24 +9,17 @@ import json
 #3. Get a collection of undisplayed news from db
 
 
-def load_news():
+def load_news(q='news'):
     newsapi = NewsApiClient(api_key='c644d0c6cff44d31a5180b9cc91c35bc')
 
-    # /v2/top-headlines
-    # top_headlines = newsapi.get_top_headlines(q='bitcoin',
-    #                                           sources='bbc-news,the-verge',
-    #                                           category='business',
-    #                                           language='en',
-    #                                           country='us')
-
-    # /v2/everything
     all_articles = newsapi.get_everything(language='en',
-                                          q='news',
+                                          q=q,
                                           sort_by='publishedAt',
                                           page_size=100,
                                           page=1)
 
     return all_articles
+
 
 def was_news_loaded(news):
     """returns true if news is already in the database"""
@@ -34,5 +28,48 @@ def was_news_loaded(news):
     # should be done on SQL side, insert into with conditions
     # let's setup a postgres db.
 
-def save_article():
-    pass
+
+def save_articles(article_list, conn):
+    # save article to database. No checks right now.
+    command = """
+        INSERT INTO fresh_news (author, description, title, url, urlToImage, publishedAt, displayed)
+        VALUES (%(author)s, %(description)s, %(title)s, %(url)s, %(urlToImage)s, %(publishedAt)s, FALSE)
+        """
+    cur = conn.cursor()
+    cur.executemany(command, article_list)
+    cur.close()
+    conn.commit()
+
+
+def open_connection():
+    return psycopg2.connect(dbname='news_db')
+
+
+def create_table(conn):
+    command = """
+        DROP TABLE fresh_news;
+        CREATE TABLE fresh_news(
+            news_id SERIAL PRIMARY KEY,
+             author VARCHAR(1000),
+             description VARCHAR(1000),
+             title VARCHAR(1000) NOT NULL,
+             url VARCHAR(1000) NOT NULL,
+             urlToImage VARCHAR(1000),
+             publishedAt VARCHAR(1000),
+             displayed boolean DEFAULT TRUE
+        )"""
+
+    cur = conn.cursor()
+    cur.execute(command)
+    cur.close()
+    con.commit()
+
+
+con = open_connection()
+create_table(con)
+articles = load_news()
+articles = articles['articles']
+save_articles(articles, con)
+con.close()
+
+
