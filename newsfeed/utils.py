@@ -27,4 +27,4 @@ def fetch_articles(q='news', q_list=''):
                 news.save()
                 loaded += 1
 
-    print('Loaded - ' + str(loaded) + ' Skipped - ' + str(skipped))
+    return 'Loaded - ' + str(loaded) + ' Skipped - ' + str(skipped)

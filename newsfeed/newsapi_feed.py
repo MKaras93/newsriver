@@ -1,6 +1,6 @@
 from newsapi import NewsApiClient
 import psycopg2
-# from .models import Article
+# from ..models import Article
 import json
 # Init
 
