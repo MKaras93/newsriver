@@ -26,5 +26,6 @@ def fetch_articles(q='news', q_list=''):
             else:
                 news.save()
                 loaded += 1
+            news.add_tag(query)
 
     return 'Loaded - ' + str(loaded) + ' Skipped - ' + str(skipped)

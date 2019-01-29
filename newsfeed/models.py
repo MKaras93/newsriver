@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.exceptions import ObjectDoesNotExist
 # Create your models here.
 
 
@@ -39,8 +39,13 @@ class Article(models.Model):
         return self.title[:100]
 
     def add_tag(self, tag_text):
-        tag = Tag.objects.get(tag_text)
-        self.tag = tag
+        try:
+            tag = Tag.objects.get(tag_text=tag_text)
+        except ObjectDoesNotExist:
+            tag = Tag(tag_text=tag_text)
+            tag.save()
+        self.tag.set(tag)
+
 
 
 
