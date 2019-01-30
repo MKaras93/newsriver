@@ -20,6 +20,7 @@ def load_news(q='news'):
 
     return all_articles
 
+# NOT USED IN THIS PROJECT. TODO: add newsapi_feed as seperate module, as I will be using it for other projects.
 
 def save_articles(article_list, conn):
     # save article to database. No checks right now.

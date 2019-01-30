@@ -3,8 +3,18 @@ from django.core.exceptions import ObjectDoesNotExist
 # Create your models here.
 
 
-def unnull(val):
-    return val if isinstance(val, str) else ''
+class NoneToEmptyStringField(models.CharField):
+    def get_prep_value(self, value):
+        if value is None:
+            return ''
+        return value
+
+
+class NoneToEmptyUrlField(models.URLField):
+    def get_prep_value(self, value):
+        if value is None:
+            return ''
+        return value
 
 
 class Tag(models.Model):
@@ -17,34 +27,25 @@ class Tag(models.Model):
 
 
 class Article(models.Model):
-    author = models.CharField(max_length=100, default='', blank=True, null=False)
-    description = models.CharField(max_length=500, default='')
-    title = models.CharField(max_length=200, unique=True, blank=False, null=False)
+    author = NoneToEmptyStringField(max_length=100, default='', blank=True, null=False)
+    description = NoneToEmptyStringField(max_length=500, default='')
+    title = models.CharField(max_length=200, unique=False, blank=False, null=False)
     url = models.URLField(unique=True)
-    urlToImage = models.URLField(default='')
+    urlToImage = NoneToEmptyUrlField(default='')
     publishedAt = models.DateTimeField()
     displayed = models.BooleanField(default=False)
     tag = models.ManyToManyField(Tag)
-
-    def create_from_dict(self, dict_):
-        self.author = unnull(dict_['author'])
-        self.description = unnull(dict_['description'])
-        self.title = dict_['title']
-        self.url = dict_['url']
-        self.urlToImage = unnull(dict_['urlToImage'])
-        self.publishedAt = dict_['publishedAt']
-        self.displayed = False
 
     def __str__(self):
         return self.title[:100]
 
     def add_tag(self, tag_text):
         try:
-            tag = Tag.objects.get(tag_text=tag_text)
+            new_tag = Tag.objects.get(tag_text=tag_text)
         except ObjectDoesNotExist:
-            tag = Tag(tag_text=tag_text)
-            tag.save()
-        self.tag.set(tag)
+            new_tag = Tag(tag_text=tag_text)
+            new_tag.save()
+        self.tag.add(new_tag)
 
 
 
