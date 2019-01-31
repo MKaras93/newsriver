@@ -1,7 +1,6 @@
-from .models import Article
+from .models import Article, Tag
 from django.core.exceptions import ValidationError
 import newsfeed.newsapi_feed as nf
-
 
 def drop_unused_keys(article):
     """drops the keys which are not used by Article model."""
@@ -47,5 +46,19 @@ def fetch_articles(q='news', q_list=''):
             #     news.save()
             #     loaded += 1
             news.add_tag(query)
-
+    # TODO: change to print instead of return. Print in "feed" command.
     return 'Loaded - ' + str(loaded) + ' Skipped - ' + str(skipped)
+
+
+def regular_refresh():
+    max_tags_per_refresh = 10
+    prior_tag_set = Tag.objects.filter(priority=True, active=True).order_by('-refreshedAt')[:max_tags_per_refresh]
+    tag_slots_left = max_tags_per_refresh - prior_tag_set.count()
+
+    for tag in prior_tag_set:
+        tag.refresh_articles()
+
+    if tag_slots_left > 0:
+        reg_tag_set = Tag.objects.filter(Active=True).order_by('-refreshedAt')[:tag_slots_left]
+        for tag in reg_tag_set:
+            tag.refresh_articles()

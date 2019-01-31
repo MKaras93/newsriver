@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
+from .utils import fetch_articles
+import datetime
 # Create your models here.
 
 
@@ -21,9 +23,16 @@ class Tag(models.Model):
     tag_text = models.CharField(max_length=30, primary_key=True)
     refresh_freq = models.PositiveIntegerField(default=1)
     active = models.BooleanField(default=True)
+    refreshedAt = models.DateTimeField()
+    priority = models.BooleanField(default=False)
 
     def __str__(self):
         return self.tag_text
+
+    def refresh_articles(self):
+        fetch_articles(self.tag_text)
+        self.refreshedAt = datetime.datetime.now()
+        self.priority = False
 
 
 class Article(models.Model):
