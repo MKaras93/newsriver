@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="019d4408-348a-4434-8a53-a99101a903f1" name="Default Changelist" comment="add duplicate with new tag handling">
+    <list default="true" id="019d4408-348a-4434-8a53-a99101a903f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../newsfeed/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../newsfeed/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../newsfeed/newsapi_feed.py" beforeDir="false" afterPath="$PROJECT_DIR$/../newsfeed/newsapi_feed.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../newsfeed/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../newsfeed/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../newsriver/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../newsriver/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,18 +18,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../newsriver/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../newsfeed/management/commands/feed.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="210">
               <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
@@ -40,20 +32,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../newsfeed/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+            <state relative-caret-position="45">
+              <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
               <folding>
-                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../newsfeed/newsapi_feed.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -73,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../newsfeed/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="75">
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -85,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.virtualenvs/newsriver/lib/python3.6/site-packages/django/db/models/fields/related_descriptors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
+            <state relative-caret-position="14475">
               <caret line="968" column="72" selection-start-line="968" selection-start-column="72" selection-end-line="968" selection-end-column="72" />
             </state>
           </provider>
@@ -95,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/../newsfeed/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -117,7 +100,12 @@
       <find>timezone</find>
       <find>time_zone</find>
       <find>unique</find>
+      <find>fetch_articles</find>
     </findStrings>
+    <replaceStrings>
+      <replace>load_articles</replace>
+      <replace>download_articles</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -146,11 +134,11 @@
         <option value="$PROJECT_DIR$/../newsfeed/templates/newsfeed/newsfeed_template.html" />
         <option value="$PROJECT_DIR$/../newsfeed/management/commands/refresh.py" />
         <option value="$PROJECT_DIR$/../newsfeed/management/commands/feed.py" />
-        <option value="$PROJECT_DIR$/../newsriver/settings.py" />
         <option value="$PROJECT_DIR$/../VA_script.py" />
+        <option value="$PROJECT_DIR$/../newsriver/settings.py" />
+        <option value="$PROJECT_DIR$/../newsfeed/newsapi_feed.py" />
         <option value="$PROJECT_DIR$/../newsfeed/models.py" />
         <option value="$PROJECT_DIR$/../newsfeed/utils.py" />
-        <option value="$PROJECT_DIR$/../newsfeed/newsapi_feed.py" />
       </list>
     </option>
   </component>
@@ -190,7 +178,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../manage.py" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -213,12 +201,18 @@
     <configuration name="Unnamed" type="CompoundRunConfigurationType">
       <method v="2" />
     </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType">
+      <toRun name="shell" type="PythonConfigurationType" />
+      <toRun name="NA_KEY" type="PythonConfigurationType" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="newsriver" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="NA_KEY" value="c644d0c6cff44d31a5180b9cc91c35bc" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/newsriver/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
@@ -247,7 +241,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../manage.py" />
-      <option name="PARAMETERS" value="feed &quot;Morocco, Mongolia&quot;" />
+      <option name="PARAMETERS" value="feed Poland" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -261,6 +255,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="NA_KEY" value="c644d0c6cff44d31a5180b9cc91c35bc" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/newsriver/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
@@ -276,9 +271,54 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="runserver" type="PythonConfigurationType" factoryName="Python">
+      <module name="newsriver" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="NA_KEY" value="c644d0c6cff44d31a5180b9cc91c35bc" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/newsriver/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="shell" type="PythonConfigurationType" factoryName="Python">
+      <module name="newsriver" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="NA_KEY" value="c644d0c6cff44d31a5180b9cc91c35bc" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/newsriver/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../manage.py" />
+      <option name="PARAMETERS" value="shell" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Compound.Unnamed" />
       <item itemvalue="Python.feed" />
+      <item itemvalue="Python.shell" />
       <item itemvalue="Python.runserver" />
     </list>
   </component>
@@ -307,7 +347,21 @@
       <option name="project" value="LOCAL" />
       <updated>1548791767674</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add duplicate with new tag handling; add NullToEmptyString and NullToEmptyUrl field to automatically convert null values; clear models.py">
+      <created>1548833638844</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1548833638844</updated>
+    </task>
+    <task id="LOCAL-00004" summary="WIP: circular dependency problem. Add priority, refreshedAt fields to Tag model, add refresh_articles method to Tag model, add regular_refresh in utils">
+      <created>1548957197896</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1548957197896</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -323,33 +377,42 @@
     <frame x="67" y="25" width="1613" height="1025" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3299298" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33886406" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996809" weight="0.32924107" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49904275" visible="true" weight="0.32924107" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39955357" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.4996809" visible="true" weight="0.32924107" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4996809" weight="0.32924107" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4996809" weight="0.15959822" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984046" weight="0.328125" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50031906" side_tool="true" visible="true" weight="0.32924107" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49649012" weight="0.328125" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5035099" side_tool="true" weight="0.328125" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4996809" weight="0.32924107" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Key Promoter X" order="3" />
+      <window_info anchor="right" id="Key Promoter X" order="3" weight="0.3299298" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="create display_articles view, add no duplicates validation, add update displayed flag on display, add q_list argument to fetch_articles" />
     <MESSAGE value="WIP fix add_tag" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP fix add_tag" />
+    <MESSAGE value="add duplicate with new tag handling; add NullToEmptyString and NullToEmptyUrl field to automatically convert null values; clear models.py" />
+    <MESSAGE value="WIP: circular dependency problem. Add priority, refreshedAt fields to Tag model, add refresh_articles method to Tag model, add regular_refresh in utils" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: circular dependency problem. Add priority, refreshedAt fields to Tag model, add refresh_articles method to Tag model, add regular_refresh in utils" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../newsfeed/newsapi_feed.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -445,23 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../newsriver/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../newsfeed/management/commands/feed.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/newsriver/lib/python3.6/site-packages/django/core/exceptions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1770">
@@ -469,29 +515,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../newsfeed/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/newsriver/lib/python3.6/site-packages/django/db/models/fields/related_descriptors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
+        <state relative-caret-position="14475">
           <caret line="968" column="72" selection-start-line="968" selection-start-column="72" selection-end-line="968" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../newsfeed/utils.py">
+    <entry file="file://$PROJECT_DIR$/../newsriver/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        <state relative-caret-position="255">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../newsfeed/management/commands/feed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -506,17 +549,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../newsfeed/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../newsfeed/newsapi_feed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../newsfeed/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../newsfeed/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="75">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

@@ -1,7 +1,9 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
-from .utils import fetch_articles
 import datetime
+import os
+import sys
+from newsapi import NewsApiClient
 # Create your models here.
 
 
@@ -23,14 +25,15 @@ class Tag(models.Model):
     tag_text = models.CharField(max_length=30, primary_key=True)
     refresh_freq = models.PositiveIntegerField(default=1)
     active = models.BooleanField(default=True)
-    refreshedAt = models.DateTimeField()
+    refreshedAt = models.DateTimeField(null=True)
     priority = models.BooleanField(default=False)
 
     def __str__(self):
         return self.tag_text
 
     def refresh_articles(self):
-        fetch_articles(self.tag_text)
+        art_list = download_articles(self.tag_text)
+        load_articles(art_list, self.tag_text)
         self.refreshedAt = datetime.datetime.now()
         self.priority = False
 
@@ -57,5 +60,49 @@ class Article(models.Model):
         self.tag.add(new_tag)
 
 
+def download_articles(q='news'):
+    newsapi = NewsApiClient(api_key=NA_KEY)
+
+    all_articles = newsapi.get_everything(language='en',
+                                          q=q,
+                                          sort_by='publishedAt',
+                                          page_size=100,
+                                          page=1)
+    articles_list = all_articles['articles']
+    return articles_list
 
 
+def load_articles(articles_list, tag=''):
+    art_count = 0
+    skipped = 0
+    loaded = 0
+    for article in articles_list:
+        art_count += len(articles_list)
+        
+        # dropping unused keys:
+        used_keys = [atr.name for atr in Article._meta.get_fields()]
+        for key in list(article):
+            if key not in used_keys:
+                article.pop(key, None)
+
+        # assumption: if article has a new url, it's a new article TODO: same articles published by different source
+        news, created = Article.objects.update_or_create(
+            url=article['url'],
+            defaults=article)
+
+        if not created:
+            print('Skipping:', article['title'])
+            skipped += 1
+        else:
+            loaded += 1
+
+        news.add_tag(tag)
+        # TODO: change to print instead of return. Print in "feed" command.
+    return 'Loaded - ' + str(loaded) + ' Skipped - ' + str(skipped)
+
+
+try:
+    NA_KEY = os.environ["NA_KEY"]
+except KeyError:
+    print("Get Newsapi key and set it as NA_KEY environment variable.")
+    sys.exit(1)
