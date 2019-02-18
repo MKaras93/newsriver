@@ -6,6 +6,7 @@ from django.template import loader
 
 # Create your views here.
 def display_articles_set(request, query=''):
+    query=query.lower()
     if query != '':
         art_set = Article.objects.filter(tag=query, displayed=False).order_by('-publishedAt')[:20]
     else:

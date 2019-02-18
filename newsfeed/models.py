@@ -52,6 +52,7 @@ class Article(models.Model):
         return self.title[:100]
 
     def add_tag(self, tag_text):
+        tag_text=tag_text.lower()
         try:
             new_tag = Tag.objects.get(tag_text=tag_text)
         except ObjectDoesNotExist:
@@ -61,6 +62,7 @@ class Article(models.Model):
 
 
 def download_articles(q='news'):
+    q = q.lower()
     newsapi = NewsApiClient(api_key=NA_KEY)
 
     all_articles = newsapi.get_everything(language='en',
@@ -73,6 +75,7 @@ def download_articles(q='news'):
 
 
 def load_articles(articles_list, tag=''):
+    tag = tag.lower()
     art_count = 0
     skipped = 0
     loaded = 0
