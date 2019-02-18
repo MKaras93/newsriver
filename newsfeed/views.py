@@ -3,6 +3,7 @@ from .models import Article, Tag
 from django.http import HttpResponse
 from django.template import loader
 from django.core.exceptions import ObjectDoesNotExist
+from .utils import regular_refresh
 
 
 # Create your views here.
@@ -28,3 +29,8 @@ def display_articles_set(request, query=''):
     resp = HttpResponse(template.render(context, request))
     Article.objects.filter(id__in=art_set).update(displayed=True)
     return resp
+
+
+def refresh():
+    regular_refresh()
+    return 'refreshed'
