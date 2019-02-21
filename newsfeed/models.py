@@ -108,4 +108,4 @@ try:
     NA_KEY = os.environ["NA_KEY"]
 except KeyError:
     print("Get Newsapi key and set it as NA_KEY environment variable.")
-    sys.exit(1)
+    # sys.exit(1)
