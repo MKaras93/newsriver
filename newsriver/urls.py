@@ -21,4 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('newsfeed.urls'))
 ]
-regular_refresh()
+# regular_refresh()
