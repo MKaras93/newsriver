@@ -2,8 +2,8 @@ from celery import task
 from celery import shared_task
 from .utils import regular_refresh
 # We can have either registered task
-@task(name='autorefresh')
-def send_import_summary():
+@shared_task(name='autorefresh')
+def start_autorefresh():
     print('starting periodic task')
     regular_refresh()
 # or
