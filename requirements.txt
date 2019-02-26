@@ -9,8 +9,6 @@ django-timezone-field==3.0
 idna==2.5
 kombu==4.3.0
 newsapi-python==0.2.3
-numpy==1.16.0
-pandas==0.24.0
 psycopg2==2.7.7
 python-crontab==2.3.6
 python-dateutil==2.7.5
