@@ -2,7 +2,7 @@ from .models import Article, Tag
 from django.core.exceptions import ValidationError
 
 def regular_refresh():
-    max_tags_per_refresh = 10
+    max_tags_per_refresh = 1
     prior_tag_set = Tag.objects.filter(priority=True, active=True).order_by('-refreshedAt')[:max_tags_per_refresh]
     tag_slots_left = max_tags_per_refresh - prior_tag_set.count()
 
