@@ -41,9 +41,9 @@ class Tag(models.Model):
 class Article(models.Model):
     author = NoneToEmptyStringField(max_length=100, default='', blank=True, null=False)
     description = NoneToEmptyStringField(max_length=500, default='')
-    title = models.CharField(max_length=200, unique=False, blank=False, null=False)
-    url = models.URLField(unique=True)
-    urlToImage = NoneToEmptyUrlField(default='')
+    title = models.CharField(max_length=500, unique=False, blank=False, null=False)
+    url = models.URLField(unique=True, max_length=500)
+    urlToImage = NoneToEmptyUrlField(default='', max_length=500)
     publishedAt = models.DateTimeField()
     displayed = models.BooleanField(default=False)
     tag = models.ManyToManyField(Tag)
@@ -89,6 +89,7 @@ def load_articles(articles_list, tag=''):
                 article.pop(key, None)
 
         # assumption: if article has a new url, it's a new article TODO: same articles published by different source
+
         news, created = Article.objects.update_or_create(
             url=article['url'],
             defaults=article)
