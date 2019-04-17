@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils import timezone
 import datetime
 import os
 import sys
@@ -34,8 +35,9 @@ class Tag(models.Model):
     def refresh_articles(self):
         art_list = download_articles(self.tag_text)
         load_articles(art_list, self.tag_text)
-        self.refreshedAt = datetime.datetime.now()
+        self.refreshedAt = timezone.now()
         self.priority = False
+        self.save()
 
 
 class Article(models.Model):
@@ -95,14 +97,15 @@ def load_articles(articles_list, tag=''):
             defaults=article)
 
         if not created:
-            print('Skipping:', article['title'])
+            # print('Skipping:', article['title'])
             skipped += 1
         else:
             loaded += 1
 
         news.add_tag(tag)
-        # TODO: change to print instead of return. Print in "feed" command.
-    return 'Loaded - ' + str(loaded) + ' Skipped - ' + str(skipped)
+
+    print('Refreshing tag ' + tag + ': Loaded - ' + str(loaded) + ' Skipped - ' + str(skipped))
+    return
 
 
 try:
